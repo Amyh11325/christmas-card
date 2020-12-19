@@ -49,7 +49,10 @@ function moveSnowflakes() {
         particlesArray[i].y += particlesArray[i].speedY;
         if (particlesArray[i].y > h) {
             particlesArray[i].x = Math.random() * w * 1.5;
-            particlesArray[i].y = -50;
+            particlesArray[i].y = -5;
+        }
+        if (particlesArray[i].x > w + 5 || particlesArray[i].x < -5) {
+            particlesArray[i].speedX = -particlesArray[i].speedX;
         }
     }
 };
