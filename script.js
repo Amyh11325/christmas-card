@@ -1,5 +1,6 @@
 window.scroll(0, 0);
 
+//Snowing Effect
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
@@ -64,5 +65,15 @@ function updateSnowfall() {
 setInterval(updateSnowfall, 50);
 createSnowflakes();
 
+//Text pop up animation
+const textBtn = document.querySelector(".btn");
+const letters = document.querySelectorAll(".textWrap>span");
 
-
+const showText = () => {
+    for (var i = 0; i < letters.length; i++) {
+        letters[i].style.animationDelay = (i * .09) + "s";
+        letters[i].style.animationPlayState = "running";
+        letters[i].style.animationIterationCount = 1;
+    }
+};
+textBtn.addEventListener("click", showText);

@@ -3,11 +3,17 @@
 <head>
   <title>Merry Christmas</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="box">
         <div class="ground"></div>
+        <div class="hill1"></div>
+        <div class="hill2"></div>
         <div class="tree" style="transform: scale(3.5); top: 50%; left: 25%;"></div>
         <!--
         <div class="tree" style="transform: scale(2.5); top: 55%; left: 65%;"></div>
@@ -15,6 +21,17 @@
         -->
         <div class="moon"></div>
         <canvas id="canvas"></canvas>
+
+        <!-- Text -->
+        <div class="textWrap" style="top:2%; left:60%">
+          <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span>
+        </div>
+        <div class="textWrap" style="top:21%; left:63%">
+          <span>H</span><span>o</span><span>l</span><span>l</span><span>i</span><span>d</span><span>a</span><span>y</span><span>s</span><span>!</span>
+        </div>
+
+        <!-- Temp button -->
+        <button class="btn">Show Text</button>
     </div>
 
     <script type="text/javascript" src="script.js"></script>
