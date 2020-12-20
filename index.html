@@ -15,22 +15,39 @@
         <div class="hill1"></div>
         <div class="hill2"></div>
         <!-- scale should range from 2 to 3 -->
-        <div class="tree" style="transform: scale(2); top: 50%; left: 0%;"></div>
-        <div class="tree" style="transform: scale(2.5); top: 40%; left: 30%"></div>
-        <div class="tree" style="transform: scale(3); top: 30%; left: 70%"></div>
+        <div class="tree" style="transform: scale(2.5); top: 40%; left: 68%"></div>
+        <div class="tree" style="transform: scale(3); top: 32%; left: 25%"></div>
+        <div class="tree" style="transform: scale(2); top: 50%; left:11%;"></div>
         <div class="moon"></div>
         <canvas id="canvas"></canvas>
 
+        <!-- Fire -->
+        <div class="fire-wrap">
+          <button id="fire-btn"></button>
+          <div class="logs" style="transform: rotate(12deg)"></div>
+          <div class="logs" style="transform: rotate(-12deg)"></div>
+          
+          <div id="flame-wrap">
+            <div class="flame-anim">
+              <div class="flame"></div>
+            </div>
+
+            <div class="flame-right-anim">
+              <div class="flame-right"></div>
+            </div>
+          </div>
+        </div>
+
         <!-- Text -->
-        <div class="textWrap" style="top:2%; left:60%">
+        <div class="text-wrap" style="top:2%; left:60%">
           <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span>
         </div>
-        <div class="textWrap" style="top:21%; left:63%">
+        <div class="text-wrap" style="top:21%; left:63%">
           <span>H</span><span>o</span><span>l</span><span>i</span><span>d</span><span>a</span><span>y</span><span>s</span><span>!</span>
         </div>
 
         <!-- Temp button -->
-        <button class="btn">Show Text</button>
+        <button id = "temp-btn">Show Text</button>
     </div>
 
     <script type="text/javascript" src="script.js"></script>

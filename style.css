@@ -103,20 +103,22 @@ canvas {
 }
 
 
-.textWrap {
+.text-wrap {
     position: absolute;
     font-family: 'Rancho', block;
     font-size: 120px;
     color: white;
     transform: skew(-10deg) rotate(7deg);
+    z-index: 3;
 }
-.textWrap>span {
+.text-wrap>span {
     display: inline-block;
-    animation: popup;
-    animation-play-state: paused;
-    animation-iteration-count: infinite;
-    animation-duration: .4s;
+    animation: popup, shift-text;
+    animation-play-state: paused, paused;
+    animation-iteration-count: infinite, infinite;
+    animation-duration: .4s, 10s;
     animation-fill-mode: forwards;
+    animation-timing-function: inherit, ease-in-out;
     opacity: 0;
 }
 @keyframes popup {
@@ -128,11 +130,120 @@ canvas {
     100% {transform: translate3d(0, 0, 0);
         opacity: 1;}
 }
-.btn {
+@keyframes shift-text {
+    3%, 100% {transform: translate3d(0px, 0px, 0);}
+    1.5% {transform: translate3d(-4px, -20px, 0);}
+}
+#temp-btn {
     position: absolute;
     top: 10%;
     left: 10%;
     width: 150px;
     height: 50px;
     font-size: 20px;
+}
+
+/* Fire */
+.fire-wrap {
+    position: absolute;
+    top: 63%;
+    left: 44%;
+    width: 220px;
+    height: 220px;
+}
+.logs {
+    position: absolute;
+    top: 70%;
+    left: 12%;
+    border-radius: 10%;
+    background: #875d00;
+    width: 170px;
+    height: 20px; 
+    pointer-events: none;
+}
+.flame {
+    position: absolute;
+    top: 35%;
+    left: 24%;
+    width: 100px;
+    height: 100px;
+    background-color: #e74900;
+    border-radius: 0 40% 60% 40%;
+    transform: scaleX(0.8) rotate(45deg);
+    filter: drop-shadow(0 -5px 25px #ff8412);
+}
+.flame-right {
+    position: absolute;
+    top: 42%;
+    left: 43%;
+    width: 80px;
+    height: 80px;
+    background-color: #fdaf07;
+    border-radius: 0 40% 60% 40%;
+    transform: scaleX(0.7) rotate(45deg);
+    filter: drop-shadow(0 -20px 25px #ff8412);
+}
+.flame-anim{
+    display: absolute;
+    width: 100%;
+    height: 100%;
+    animation: flame 3.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    transform-origin: bottom;
+}
+.flame-right-anim {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    animation: flame-right 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+}
+@keyframes flame{
+    0%, 100%{transform: scaleY(1) scaleX(1) rotate(0deg);
+                animation-timing-function: ease-in-out;}
+    50%{transform: scaleY(1.15) rotate(2deg);}
+    75% {transform: scaleY(0.95);}
+    80% {transform: scaleX(0.95);}
+    90% {transform: scaleY(1.05);}
+    /* 50% {transform: rotate(3deg);} */
+}
+@keyframes flame-right {
+    0%, 100% {transform: skew(0) scale(1) rotate(0deg);
+                animation-timing-function: ease-in-out;}
+    50% {transform: skewX(-5deg) scale(0.9) rotate(3deg);
+                animation-timing-function: ease-in-out;}
+}
+#flame-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: light .5s;
+    animation-play-state: paused;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform-origin: 80% 80%;
+}
+@keyframes light {
+    0% {transform: scaleX(0) scaleY(0) skewX(-80deg); opacity: 0; animation-timing-function: ease-in-out;}
+    30% {transform: scaleX(0.1) scaleY(0.1) skew(-60deg); opacity: 0.1;}
+    99% {transform: scaleX(1) scaleY(1) skewX(2deg); animation-timing-function: ease-in-out;}
+    100% {transform: scaleX(1) scaleY(1) skewX(0deg); opacity: 1;}
+}
+#fire-btn {
+    position: absolute;
+    width: 95%;
+    height: 30%;
+    top: 60%;
+    left: 2.5%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+button#fire-btn:hover {
+    background: radial-gradient(ellipse at center, #fbff04 0, transparent 90%);
 }

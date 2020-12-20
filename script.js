@@ -64,14 +64,14 @@ function updateSnowfall() {
 createSnowflakes();
 
 //Text pop up animation
-const textBtn = document.querySelector(".btn");
-const letters = document.querySelectorAll(".textWrap>span");
+const textBtn = document.getElementById("temp-btn");
+const letters = document.querySelectorAll(".text-wrap>span");
 
 const showText = () => {
     for (var i = 0; i < letters.length; i++) {
-        letters[i].style.animationDelay = (i * .09) + "s";
-        letters[i].style.animationPlayState = "running";
-        letters[i].style.animationIterationCount = 1;
+        letters[i].style.animationDelay = (i * .09) + "s" + ", " + ((i * 0.12) +4) + "s";
+        letters[i].style.animationPlayState = "running, running";
+        letters[i].style.animationIterationCount = 1 + ", infinite";
     }
 };
 textBtn.addEventListener("click", showText);
@@ -155,8 +155,6 @@ const createLights = () => {
     }
 };
 
-// known bug: lights are rendered in front of text
-// fix: avoid text with tree placement
 const showLights = () => {
     for (var i = 0; i < lights.length; ++i) {
         for (var j = 0; j < nLights; ++j) {
@@ -181,3 +179,12 @@ const show = () => {
     updateSnowfall();
 };
 setInterval(show, 50);
+
+//Fire interaction
+const fireBtn = document.getElementById("fire-btn");
+const flameWrap = document.getElementById("flame-wrap");
+const showFire = () => {
+    flameWrap.style.animationPlayState = "running";
+    flameWrap.style.animationIterationCount = 1;
+}
+fireBtn.addEventListener("click", showFire);
