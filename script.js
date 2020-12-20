@@ -15,7 +15,7 @@ function random(min, max) {
 };
 function clientResize(ev) {
     w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight; 
+    h = canvas.height = window.innerHeight;
 };
 window.addEventListener("resize", clientResize);
 
@@ -34,7 +34,7 @@ function createSnowflakes() {
 function drawSnowflakes() {
     for (var i = 0; i < particlesArray.length; i++) {
         var gradient = ctx.createRadialGradient(particlesArray[i].x, particlesArray[i].y, 0, particlesArray[i].x, particlesArray[i].y, particlesArray[i].radius);
-        gradient.addColorStop(0, "rgba(255, 255, 255," + particlesArray[i].opacity + ")"); 
+        gradient.addColorStop(0, "rgba(255, 255, 255," + particlesArray[i].opacity + ")");
         gradient.addColorStop(.8, "rgba(210, 236, 242," + particlesArray[i].opacity + ")");
         gradient.addColorStop(1, "rgba(237, 247, 249," + particlesArray[i].opacity + ")");
 
@@ -58,11 +58,9 @@ function moveSnowflakes() {
     }
 };
 function updateSnowfall() {
-    ctx.clearRect(0, 0, w, h);
     drawSnowflakes();
     moveSnowflakes();
 };
-setInterval(updateSnowfall, 50);
 createSnowflakes();
 
 //Text pop up animation
@@ -77,3 +75,109 @@ const showText = () => {
     }
 };
 textBtn.addEventListener("click", showText);
+
+//Tree lights
+const nLights = 16;
+const lightColors = [["#7a1907", "#e03212"], ["#5e5e00", "#ebeb02"], ["#003b08", "#00e81f"], ["#003847", "#00addb"]];
+const lightRadii = [0.7, 1]
+const lightSizeRange = [4, 6];
+const trees = document.getElementsByClassName("tree");
+var lights = [];
+
+const randomFloat = (min, max) => {
+    return Math.random() * (max - min) + min;
+};
+
+const randomInt = (min, max) => {
+    return Math.floor(randomFloat(min, max));
+};
+
+const checkCollision = (light1, light2) => {
+    const x1 = light1.x, y1 = light1.y, r1 = light1.size;
+    const x2 = light2.x, y2 = light2.y, r2 = light2.size;
+    const dx = x2 - x1, dy = y2 - y1;
+    return dx * dx + dy * dy < (r1 + r2) * (r1 + r2);
+}
+
+const createLights = () => {
+    for (var i = 0; i < trees.length; ++i) {
+        lights.push([]);
+        const rect = trees[i].getBoundingClientRect();
+        const scale = rect.width / trees[i].offsetWidth;
+        // ugly hard code oops
+        const leftBound = rect.left + 0.41 * rect.width;
+        const rightBound = rect.right - 0.39 * rect.width;
+        const topBound = rect.top + 0.45 * rect.height;
+        const bottomBound = rect.bottom - 0.13 * rect.height;
+        const topThreshold = rect.top + 0.47 * rect.height;
+        const topThresholdLeft = rect.left + 0.44 * rect.width;
+        const topThresholdRight = rect.right - 0.42 * rect.width;
+        for (var j = 0; j < nLights; ++j) {
+            lights[i].push({
+                x: randomFloat(leftBound, rightBound),
+                y: randomFloat(topBound, bottomBound),
+                size: scale * randomFloat(lightSizeRange[0], lightSizeRange[1]),
+                color: randomInt(0, lightColors.length),
+                lit: 0
+            });
+
+            // resolve collision
+            while (true) {
+                var collide = false;
+                for (var k = 0; k < j; ++k) {
+                    if (checkCollision(lights[i][j], lights[i][k])) {
+                        collide = true;
+                        break;
+                    }
+                }
+                if (collide || lights[i][j].y < topThreshold && (lights[i][j].x < topThresholdLeft || lights[i][j].x > topThresholdRight)) {
+                    lights[i][j].x = randomFloat(leftBound, rightBound);
+                    lights[i][j].y = randomFloat(topBound, bottomBound);
+                } else {
+                    break;
+                }
+            }
+        }
+
+        // temporary solution
+        var button = document.createElement("button");
+        button.innerHTML = "Lights on";
+        const capture = i;
+        button.addEventListener("click", () => {
+            for (var l = 0; l < nLights; ++l) {
+                lights[capture][l].lit = 1;
+            }
+        });
+        trees[i].appendChild(button);
+        button.style.position = "absolute";
+        button.style.top = "100%";
+        button.style.left = "33%";
+    }
+};
+
+// known bug: lights are rendered in front of text
+// fix: avoid text with tree placement
+const showLights = () => {
+    for (var i = 0; i < lights.length; ++i) {
+        for (var j = 0; j < nLights; ++j) {
+            const light = lights[i][j];
+            var gradient = ctx.createRadialGradient(light.x - light.size, light.y - light.size, 0, light.x - light.size, light.y - light.size, light.size);
+            gradient.addColorStop(0.6, lightColors[light.color][light.lit]);
+            gradient.addColorStop(lightRadii[light.lit], "#0c40");
+
+            ctx.beginPath();
+            ctx.arc(light.x - light.size, light.y - light.size, light.size, 0, 2 * Math.PI);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+        }
+    }
+};
+
+createLights();
+
+const show = () => {
+    ctx.clearRect(0, 0, w, h);
+    showLights();
+    updateSnowfall();
+};
+setInterval(show, 50);

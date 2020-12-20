@@ -38,7 +38,7 @@ canvas {
     left:30%;
 
     background-color: #162b53;
-    border-radius: 100%/100%; 
+    border-radius: 100%/100%;
     z-index: -1;
 }
 .hill2{
@@ -49,7 +49,7 @@ canvas {
     left:-28%;
 
     background-color: #19305a;
-    border-radius: 100%/100%; 
+    border-radius: 100%/100%;
     z-index: -1;
 }
 
@@ -64,35 +64,9 @@ canvas {
 
 .tree {
 	 position: absolute;
-	 top: 0%;
-	 left: 0%;
-	 margin-top: -100px;
-	 margin-left: -100px;
 	 width: 200px;
 	 height: 200px;
-     --small-light: 1.5%;
-     --big-light: 2.5%;
-     --small-flare: 1.7%;
-     --big-flare: 2.7%;
-     --red-light: #7a1907;
-     --yellow-light: #5e5e00;
-     --green-light: #003b08;
-     --blue-light: #003847;
 	 background-image:
-        /* lights */
-        radial-gradient(var(--red-light) var(--big-light), transparent var(--big-flare)),
-        radial-gradient(var(--yellow-light) var(--small-light), transparent var(--small-flare)),
-        radial-gradient(var(--green-light) var(--small-light), transparent var(--small-flare)),
-        radial-gradient(var(--blue-light) var(--big-light), transparent var(--big-flare)),
-        radial-gradient(var(--red-light) var(--small-light), transparent var(--small-flare)),
-        radial-gradient(var(--yellow-light) var(--big-light), transparent var(--big-flare)),
-        radial-gradient(var(--green-light) var(--big-light), transparent var(--big-flare)),
-        radial-gradient(var(--blue-light) var(--small-light), transparent var(--small-flare)),
-        radial-gradient(var(--red-light) var(--big-light), transparent var(--big-flare)),
-        radial-gradient(var(--yellow-light) var(--small-light), transparent var(--small-flare)),
-        radial-gradient(var(--green-light) var(--small-light), transparent var(--small-flare)),
-        radial-gradient(var(--blue-light) var(--big-light), transparent var(--big-flare)),
-        radial-gradient(var(--green-light) var(--big-light), transparent var(--big-flare)),
         /* leaves - top right */
         linear-gradient(60deg, #018c28 8%, transparent 8.2%),
         /* leaves - top left */
@@ -110,19 +84,6 @@ canvas {
         /* trunk - left */
         linear-gradient(-85deg, #ab7500 5%, transparent 5.2%);
 	 background-position:
-        -10px 0px,
-        5px -5px,
-        -17px 25px,
-        5px 11px,
-        12px 20px,
-        -2px 23px,
-        7px 35px,
-        -5px 38px,
-        -15px 48px,
-        -2px 52px,
-        20px 57px,
-        12px 60px,
-        -20px 63px, 
         /* leaves - top right */
         100px 110px,
         /* leaves - top left */
@@ -139,17 +100,6 @@ canvas {
         100px 200px,
         /* trunk - left */
         100px 200px;
-}
-
-.tree:hover {
-    --small-light: 1%;
-    --big-light: 1.5%;
-    --small-flare: 2.7%;
-    --big-flare: 3.7%;
-    --red-light: #e03212;
-    --yellow-light: #ebeb02;
-    --green-light: #00e81f;
-    --blue-light: #00addb;
 }
 
 
