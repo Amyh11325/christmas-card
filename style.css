@@ -66,6 +66,14 @@ canvas {
 	 position: absolute;
 	 width: 200px;
 	 height: 200px;
+     animation: sway;
+     animation-play-state: running;
+     animation-iteration-count: infinite;
+     animation-duration: 5s;
+     animation-timing-function: ease-in-out;
+     --scale: 1;
+     transform-origin: bottom center;
+     transform: scale(var(--scale));
 	 background-image:
         /* leaves - top right */
         linear-gradient(60deg, #018c28 8%, transparent 8.2%),
@@ -102,6 +110,31 @@ canvas {
         100px 200px;
 }
 
+.tree-light {
+    position: absolute;
+}
+
+.tree-btn {
+    position: absolute;
+    width: 45%;
+    height: 80%;
+    margin-top: -80%;
+    margin-left: -6%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    z-index: 5;
+    --color: #fbff0480;
+}
+
+.tree-btn:hover {
+    background: radial-gradient(ellipse at center, var(--color) 0, transparent 70%);
+}
+
+@keyframes sway {
+    0%, 100% {transform: scale(var(--scale)) skewX(1.5deg);}
+    50% {transform: scale(var(--scale)) skewX(-1.5deg);}
+}
 
 .text-wrap {
     position: absolute;
@@ -134,14 +167,6 @@ canvas {
     3%, 100% {transform: translate3d(0px, 0px, 0);}
     1.5% {transform: translate3d(-4px, -20px, 0);}
 }
-#temp-btn {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-}
 
 /* Fire */
 .fire-wrap {
@@ -158,7 +183,7 @@ canvas {
     border-radius: 10%;
     background: #875d00;
     width: 170px;
-    height: 20px; 
+    height: 20px;
     pointer-events: none;
 }
 .flame {
@@ -195,7 +220,7 @@ canvas {
 .flame-right-anim {
     position: absolute;
     top: 0;
-    left: 0; 
+    left: 0;
     width: 100%;
     height: 100%;
     animation: flame-right 2.5s;
