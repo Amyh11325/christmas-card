@@ -1,0 +1,23 @@
+<svg width="149" height="67" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="69" width="151" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse ry="16.00017" rx="16.00017" id="svg_18" cy="24.75026" cx="16.75017" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="14.00015" rx="14.00015" id="svg_20" cy="14.75015" cx="38.75041" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="15.50017" rx="15.50017" id="svg_22" cy="23.25024" cx="65.25069" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="20.50022" rx="20.50022" id="svg_24" cy="38.2504" cx="40.25042" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="15.50017" rx="15.50017" id="svg_25" cy="40.25042" cx="65.25069" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="16.00017" rx="16.00017" id="svg_26" cy="26.75028" cx="87.75093" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="15.50017" rx="15.50017" id="svg_29" cy="50.25053" cx="89.25095" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="21.00022" rx="21.00022" id="svg_30" cy="24.75026" cx="110.75117" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="12.50013" rx="12.50013" id="svg_31" cy="50.25053" cx="113.2512" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+  <ellipse ry="16.00017" rx="16.00017" id="svg_33" cy="36.75038" cx="131.7514" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="null" fill="#404c63"/>
+ </g>
+</svg>

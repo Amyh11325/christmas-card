@@ -62,6 +62,71 @@ canvas {
     box-shadow: 20px 20px 0 0 #ebebbc;
   }
 
+#cloud1 {
+    position: absolute;
+    width: 119px;
+    height: 76px;
+    top: 1%;
+    left: 3%;
+    transform-origin: 0 0;
+    transform: scale(1.5);
+    background-image: url(cloud1.svg);
+    filter: opacity(45%);
+    z-index: 2;
+}
+
+#cloud2 {
+    position: absolute;
+    width: 119px;
+    height: 76px;
+    top: 5%;
+    left: 90%;
+    transform-origin: 0 0;
+    transform: scale(1.2);
+    background-image: url(cloud1.svg);
+    filter: opacity(70%);
+    z-index: 42;
+}
+
+#cloud3 {
+    position: absolute;
+    width: 149px;
+    height: 67px;
+    top: 8%;
+    left: 23%;
+    transform-origin: 0 0;
+    transform: scale(1.8);
+    background-image: url(cloud2.svg);
+    filter: opacity(55%);
+    z-index: 2;
+}
+
+#cloud4 {
+    position: absolute;
+    width: 130px;
+    height: 57px;
+    top: 3%;
+    left: 46%;
+    transform-origin: 0 0;
+    transform: scale(1.2);
+    background-image: url(cloud3.svg);
+    filter: opacity(60%);
+    z-index: 2;
+}
+
+#cloud5 {
+    position: absolute;
+    width: 130px;
+    height: 57px;
+    top: 12%;
+    left: 68%;
+    transform-origin: 0 0;
+    transform: scale(1.6);
+    background-image: url(cloud3.svg);
+    filter: opacity(65%);
+    z-index: 2;
+}
+
 .tree {
 	 position: absolute;
 	 width: 200px;

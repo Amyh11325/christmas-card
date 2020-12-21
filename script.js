@@ -253,3 +253,31 @@ const showFire = () => {
     fireBtn.disabled = true;
 }
 fireBtn.addEventListener("click", showFire);
+
+//Cloud movement
+var speed = [];
+var cloudPos = [3, 90, 23, 46, 68];
+
+const moveClouds = () => {
+    const clouds = [
+        document.getElementById("cloud1"),
+        document.getElementById("cloud2"),
+        document.getElementById("cloud3"),
+        document.getElementById("cloud4"),
+        document.getElementById("cloud5")
+    ];
+    for (var i = 0; i < 5; ++i) {
+        speed.push(randomFloat(0.05, 0.1));
+        const captureI = i;
+        const move = () => {
+            cloudPos[captureI] += speed[captureI];
+            if (cloudPos[captureI] >= 100) {
+                cloudPos[captureI] = -12;
+            }
+            clouds[captureI].style.left = cloudPos[captureI] + "%";
+        };
+        setInterval(move, 50);
+    }
+};
+
+moveClouds();
