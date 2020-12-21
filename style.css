@@ -85,7 +85,7 @@ canvas {
     transform: scale(1.2);
     background-image: url(cloud1.svg);
     filter: opacity(70%);
-    z-index: 42;
+    z-index: 2;
 }
 
 #cloud3 {
