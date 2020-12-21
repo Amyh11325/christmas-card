@@ -243,6 +243,15 @@ const show = () => {
 };
 setInterval(show, 50);
 
+//Tree swaying
+const sway = () => {
+    for (var i = 0; i < trees.length; ++i) {
+        trees[i].style.animationDuration = randomFloat(4, 8) + "s";
+    }
+}
+
+sway();
+
 //Fire interaction
 const fireBtn = document.getElementById("fire-btn");
 const flameWrap = document.getElementById("flame-wrap");
